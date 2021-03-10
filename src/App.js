@@ -1,23 +1,25 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
-import BaseMapContainer from "./components/base-map-container/BaseMapContainer";
-import Homepage from "./pages/Hompage";
+import { Switch, Route, Link } from "react-router-dom";
+import Homepage from "./pages/Homepage";
 import Mapper from "./pages/Mapper";
+import Header from "./components/header/Header";
+import PostItForm from "./components/post-it-form/PostItForm"
 
-
-function App() {
+const App = () => {
   return (
     <>
-    <Header/>
-    <Switch>
-      <Route exact path="/" component={Homepage} />
-      <Route exact patch="/mapper" component={Mapper}/>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Homepage} />
+        <Route
+          exact
+          path="/mapper"
+          component={Mapper}
+        />
+        <Route exact path="/postitform" component={PostItForm} />
       </Switch>
-
-    <BaseMapContainer/>
     </>
-
   );
-}
+};
 
 export default App;

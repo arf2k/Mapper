@@ -1,5 +1,9 @@
 import React, {useState} from "react";
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
+import PostItForm from "../post-it-form/PostItForm";
+import PostItList from "../post-it-list/PostItList";
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const key = process.env.REACT_APP_GOOG_MAP_KEY;
 const lib = ["places"];
@@ -40,9 +44,7 @@ function BaseMapContainer(props) {
                    {markers.map((marker) => <Marker key={marker.time} position={{ lat: marker.lat, lng: marker.lng }} onClick={()=> setSelectedMarker(marker)} />)} 
 
                    {selectedMarker ? (<InfoWindow position={{ lat: selectedMarker.lat, lng: selectedMarker.lng}}>
-                        <div>
-                        <h5>Make a note</h5>
-                        </div>
+                     <h1 onClick={()=> props.history.push("/postitform")}>Make Notes</h1>
 
                    </InfoWindow>) : null}
       </GoogleMap>
@@ -50,4 +52,4 @@ function BaseMapContainer(props) {
   );
 }
 // make infowindow separate comp
-export default BaseMapContainer;
+export default withRouter(BaseMapContainer);
