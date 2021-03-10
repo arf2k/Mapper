@@ -2,13 +2,12 @@ import React from "react";
 import BaseMapContainer from "../components/base-map-container/BaseMapContainer";
 
 const Mapper = () => {
+  return (
+    <>
+      <h1>Mapper page</h1>
+      <BaseMapContainer />
+    </>
+  );
+};
 
-     return(
-          <>
-          <h1>Mapper page</h1>
-          <BaseMapContainer/>
-          </>
-     )
-}
-
-export default Mapper
+export default Mapper;

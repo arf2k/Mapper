@@ -20,6 +20,8 @@ function BaseMapContainer(props) {
   const [markers, setMarkers] = useState([]);
   const [selectedMarker, setSelectedMarker] = useState(null);
 
+//   switch markers to redux
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: key,
     libraries: lib,
