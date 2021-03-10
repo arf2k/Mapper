@@ -1,9 +1,10 @@
 import React from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Mapper from "./pages/Mapper";
 import Header from "./components/header/Header";
 import PostItForm from "./components/post-it-form/PostItForm"
+import NotesContainer from "./components/notes-container/NotesContainer";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           component={Mapper}
         />
         <Route exact path="/postitform" component={PostItForm} />
+        <Route exact path="/notescontainer" component={NotesContainer}/>
       </Switch>
     </>
   );

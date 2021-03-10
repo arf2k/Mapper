@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import mapReducer from "./map/mapReducer"
-import notesReducer from "./notes/noteReducer";
+import notesReducer from "./notes/notesReducer";
 
 
 const rootReducer = combineReducers({

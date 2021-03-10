@@ -6,9 +6,7 @@ import { Icon } from "semantic-ui-react";
 const PostIt = ({note, idx, deleteNote}) => {
 
   
-const deleteHandler = (e) => {
-     console.log("click")
-}
+
 
      return(
           <li>

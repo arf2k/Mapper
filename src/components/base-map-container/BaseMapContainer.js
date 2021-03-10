@@ -1,9 +1,12 @@
-import React, {useState} from "react";
-import { GoogleMap, useLoadScript, Marker, InfoWindow } from "@react-google-maps/api";
-import PostItForm from "../post-it-form/PostItForm";
-import PostItList from "../post-it-list/PostItList";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import {
+  GoogleMap,
+  useLoadScript,
+  Marker,
+  InfoWindow,
+} from "@react-google-maps/api";
 import { withRouter } from "react-router-dom";
+import NotesContainer from "../notes-container/NotesContainer";
 
 const key = process.env.REACT_APP_GOOG_MAP_KEY;
 const lib = ["places"];
@@ -14,11 +17,10 @@ const mapContainerStyle = {
 const center = { lat: 40.7675, lng: -73.9758 };
 
 function BaseMapContainer(props) {
-     
-     const [markers, setMarkers] = useState([]);
-     const [selectedMarker, setSelectedMarker] = useState(null)
-  
-   const { isLoaded, loadError } = useLoadScript({
+  const [markers, setMarkers] = useState([]);
+  const [selectedMarker, setSelectedMarker] = useState(null);
+
+  const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: key,
     libraries: lib,
   });
@@ -27,11 +29,14 @@ function BaseMapContainer(props) {
   if (!isLoaded) return <div>Loading....</div>;
 
   const markSetter = (e) => {
-       setMarkers( current => [...current, {
-            lat: e.latLng.lat(),
-            lng: e.latLng.lng()
-       }])
-  }
+    setMarkers((current) => [
+      ...current,
+      {
+        lat: e.latLng.lat(),
+        lng: e.latLng.lng(),
+      },
+    ]);
+  };
 
   return (
     <div>
@@ -41,12 +46,21 @@ function BaseMapContainer(props) {
         center={center}
         onClick={markSetter}
       >
-                   {markers.map((marker) => <Marker key={marker.time} position={{ lat: marker.lat, lng: marker.lng }} onClick={()=> setSelectedMarker(marker)} />)} 
+        {markers.map((marker) => (
+          <Marker
+            key={marker.time}
+            position={{ lat: marker.lat, lng: marker.lng }}
+            onClick={() => setSelectedMarker(marker)}
+          />
+        ))}
 
-                   {selectedMarker ? (<InfoWindow position={{ lat: selectedMarker.lat, lng: selectedMarker.lng}}>
-                     <h1 onClick={()=> props.history.push("/postitform")}>Make Notes</h1>
-
-                   </InfoWindow>) : null}
+        {selectedMarker ? (
+          <InfoWindow
+            position={{ lat: selectedMarker.lat, lng: selectedMarker.lng }}
+          >
+            <NotesContainer />
+          </InfoWindow>
+        ) : null}
       </GoogleMap>
     </div>
   );

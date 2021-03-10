@@ -1,6 +1,6 @@
 import React from "react";
 import { Icon } from "semantic-ui-react";
-import { HeaderContainer, LogoContainer, Logo, OptionsContainer, OptionLink } from "./HeaderStyles"
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink } from "./HeaderStyles"
 
 const Header = () => {
 
@@ -11,7 +11,8 @@ const Header = () => {
             </LogoContainer>
             <OptionsContainer>
               <OptionLink to="/mapper">MAP</OptionLink>
-              <OptionLink to="/mapper">CONTACT</OptionLink>
+              <OptionLink to="/postitform">NOTE FORM</OptionLink>
+              <OptionLink to="/notescontainer">SEE NOTES</OptionLink>
               {/* {currentUser ? (
                 <OptionLink as="div" onClick={signOutStart}>
                   SIGN OUT
