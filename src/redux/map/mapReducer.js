@@ -1,19 +1,26 @@
-import MapActionTypes from "./mapTypes"
+import MapActionTypes from "./mapTypes";
 
 const INITIAL_STATE = {
-     markers: []
-}
+
+    coords: {
+      lat: "",
+      lng: "",
+    }
+
+};
 
 const mapReducer = (state = INITIAL_STATE, action) => {
-     switch(action.type) {
-case MapActionTypes.ADD_MARKER: 
-return {
-     ...state,
-}
+  switch (action.type) {
+    case MapActionTypes.ADD_MARKER:
+      return {
+        ...state,
+       coords: [action.payload]
      
-     default:
-          return state 
-     }
 }
 
-export default mapReducer
+    default:
+      return state;
+  }
+};
+
+export default mapReducer;

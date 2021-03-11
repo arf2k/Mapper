@@ -20,8 +20,6 @@ function BaseMapContainer(props) {
   const [markers, setMarkers] = useState([]);
   const [selectedMarker, setSelectedMarker] = useState(null);
 
-//   switch markers to redux
-
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: key,
     libraries: lib,
@@ -50,7 +48,7 @@ function BaseMapContainer(props) {
       >
         {markers.map((marker) => (
           <Marker
-            key={marker.time}
+            key={marker.id}
             position={{ lat: marker.lat, lng: marker.lng }}
             onClick={() => setSelectedMarker(marker)}
           />
@@ -60,12 +58,14 @@ function BaseMapContainer(props) {
           <InfoWindow
             position={{ lat: selectedMarker.lat, lng: selectedMarker.lng }}
           >
-            <NotesContainer />
+            <NotesContainer
+              position={{ lat: selectedMarker.lat, lng: selectedMarker.lng }}
+            />
           </InfoWindow>
         ) : null}
       </GoogleMap>
     </div>
   );
 }
-// make infowindow separate comp
+
 export default withRouter(BaseMapContainer);
