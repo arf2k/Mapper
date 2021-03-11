@@ -18,16 +18,10 @@ const PostItForm = ({ addNote, addMarker, position }) => {
     }
   };
 
-  
-const savePlace = (e) => {
-  e.preventDefault();
-
-  addMarker({lat: position.lat, lng: position.lng})
-    
-  
-   
-  
-}
+  const savePlace = (e) => {
+    e.preventDefault();
+    addMarker({ lat: position.lat, lng: position.lng });
+  };
 
   return (
     <>
@@ -49,9 +43,7 @@ const savePlace = (e) => {
 
 const mapDispatchToProps = (dispatch) => ({
   addNote: (note) => dispatch(addNote(note)),
-  addMarker: (coords) => dispatch(addMarker(coords))
+  addMarker: (coords) => dispatch(addMarker(coords)),
 });
-
-
 
 export default connect(null, mapDispatchToProps)(PostItForm);

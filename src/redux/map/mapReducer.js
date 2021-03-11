@@ -1,12 +1,10 @@
 import MapActionTypes from "./mapTypes";
 
 const INITIAL_STATE = {
-
-    coords: {
-      lat: "",
-      lng: "",
-    }
-
+  coords: {
+    lat: "",
+    lng: "",
+  },
 };
 
 const mapReducer = (state = INITIAL_STATE, action) => {
@@ -14,9 +12,8 @@ const mapReducer = (state = INITIAL_STATE, action) => {
     case MapActionTypes.ADD_MARKER:
       return {
         ...state,
-       coords: [action.payload]
-     
-}
+        coords: [action.payload],
+      };
 
     default:
       return state;
