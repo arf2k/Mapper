@@ -5,6 +5,7 @@ const INITIAL_STATE = {
     lat: "",
     lng: "",
   },
+  saved: false
 };
 
 const mapReducer = (state = INITIAL_STATE, action) => {
@@ -13,6 +14,7 @@ const mapReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         coords: [action.payload],
+        saved: true 
       };
 
     default:

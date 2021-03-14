@@ -5,6 +5,8 @@ import { addNote } from "../../redux/notes/noteActions";
 
 const PostItForm = ({ addNote, addMarker, position }) => {
   const [text, setText] = useState("");
+  const [saved, setSaved] = useState(false)
+  const [containsNote, setContainsNote] = useState(false)
 
   const changeHandler = (e) => {
     setText(e.target.value);
@@ -15,13 +17,22 @@ const PostItForm = ({ addNote, addMarker, position }) => {
     if (text !== "") {
       addNote(text);
       setText("");
+      setContainsNote(true)
     }
   };
 
   const savePlace = (e) => {
     e.preventDefault();
+    if(!saved){
     addMarker({ lat: position.lat, lng: position.lng });
+    setSaved(true)
+    } else {
+      alert("this is already saved")
+    }
+
   };
+
+  
 
   return (
     <>

@@ -10,11 +10,11 @@ import NotesContainer from "../notes-container/NotesContainer";
 
 const key = process.env.REACT_APP_GOOG_MAP_KEY;
 const lib = ["places"];
+const center = { lat: 40.7675, lng: -73.9758 };
 const mapContainerStyle = {
   height: "100vh",
   width: "100vw",
 };
-const center = { lat: 40.7675, lng: -73.9758 };
 
 function BaseMapContainer(props) {
   const [markers, setMarkers] = useState([]);
@@ -37,6 +37,7 @@ function BaseMapContainer(props) {
       },
     ]);
   };
+  
 
   return (
     <div>
@@ -67,5 +68,7 @@ function BaseMapContainer(props) {
     </div>
   );
 }
+
+
 
 export default withRouter(BaseMapContainer);

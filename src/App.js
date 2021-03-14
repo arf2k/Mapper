@@ -7,6 +7,7 @@ import PostItForm from "./components/post-it-form/PostItForm"
 import NotesContainer from "./components/notes-container/NotesContainer";
 
 const App = () => {
+
   return (
     <>
       <Header />
