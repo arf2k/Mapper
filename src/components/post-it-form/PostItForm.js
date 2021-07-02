@@ -6,7 +6,6 @@ import { addNote } from "../../redux/notes/noteActions";
 const PostItForm = ({ addNote, addMarker, position }) => {
   const [text, setText] = useState("");
   const [saved, setSaved] = useState(false)
-  const [containsNote, setContainsNote] = useState(false)
 
   const changeHandler = (e) => {
     setText(e.target.value);
@@ -17,7 +16,6 @@ const PostItForm = ({ addNote, addMarker, position }) => {
     if (text !== "") {
       addNote(text);
       setText("");
-      setContainsNote(true)
     }
   };
 
