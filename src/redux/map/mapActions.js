@@ -1,8 +1,7 @@
 import MapActionTypes from "./mapTypes"
 
-let coords = {lat: "", lng: ""}
-export const addMarker = (coords) => ({
+export const addMarker = (position) => ({
      type: MapActionTypes.ADD_MARKER,
-     payload: coords
+     payload: position
 })
 

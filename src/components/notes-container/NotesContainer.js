@@ -2,14 +2,14 @@ import React from "react";
 import PostItForm from "../post-it-form/PostItForm";
 import PostItList from "../post-it-list/PostItList";
 
-const NotesContainer = ({ props }) => {
+const NotesContainer = ({ position }) => {
 
 
-  console.log(props)
+  console.log(position)
 
   return (
     <>
-      <PostItForm />
+      <PostItForm position={position} />
       <PostItList />
     </>
   );
