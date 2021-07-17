@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addMarker } from "../../redux/map/mapActions";
 import { addNote } from "../../redux/notes/noteActions";
 
-const PostItForm = ({ addNote, addMarker, position }) => {
+const PostItForm = ({ addNote, addMarker, position, coords }) => {
   const [text, setText] = useState("");
   const [saved, setSaved] = useState(false)
 
@@ -22,7 +22,8 @@ const PostItForm = ({ addNote, addMarker, position }) => {
   const savePlace = (e) => {
     e.preventDefault();
     if(!saved){
-    addMarker({ lat: position.lat, lng: position.lng });
+    addMarker({coords, position});
+    console.log({coords, position})
     setSaved(true)
     } else {
       alert("this is already saved")
